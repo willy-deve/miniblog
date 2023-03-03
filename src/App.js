@@ -1,12 +1,12 @@
 
 import './App.css';
+import AppRoutes from './routes/AppRoutes';
 
 
 function App() {
   return (
     <div className="container">
-      <h2>Firebase</h2>
-
+      <AppRoutes />
 
     </div>
   );
