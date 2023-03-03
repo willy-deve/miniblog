@@ -4,17 +4,26 @@ import Footer from '../components/Footer/Footer';
 import Navbar from '../components/Navbar/Navbar';
 import About from '../pages/About/About';
 import Home from '../pages/Home/Home';
+import "../App.css";
 
 function AppRoutes() {
   return (
-    <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/about' element={<About />} />
-      </Routes>
-      <Footer />
-    </BrowserRouter>
+    <div className='App'>
+
+      <BrowserRouter>
+        <Navbar />
+        <div className='container'>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/about' element={<About />} />
+          </Routes>
+        </div>
+        <Footer />
+      </BrowserRouter>
+
+
+    </div>
+
   );
 }
 
