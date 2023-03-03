@@ -5,6 +5,8 @@ import Navbar from '../components/Navbar/Navbar';
 import About from '../pages/About/About';
 import Home from '../pages/Home/Home';
 import "../App.css";
+import Login from '../pages/Login/Login';
+import Registro from '../pages/Registro/Registro';
 
 function AppRoutes() {
   return (
@@ -16,6 +18,8 @@ function AppRoutes() {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/about' element={<About />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/registro' element={<Registro />} />
           </Routes>
         </div>
         <Footer />
