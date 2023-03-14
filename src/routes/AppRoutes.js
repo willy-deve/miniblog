@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Footer from '../components/Footer/Footer';
 import Navbar from '../components/Navbar/Navbar';
 import About from '../pages/About/About';
@@ -45,10 +45,10 @@ function AppRoutes() {
             <Routes>
               <Route path='/' element={<Home />} />
               <Route path='/about' element={<About />} />
-              <Route path='/login' element={<Login />} />
-              <Route path='/registro' element={<Registro />} />
-              <Route path='/posts/create' element={<CreatePost />} />
-              <Route path='/dashboard' element={<Dashboard />} />
+              <Route path='/login' element={!user ? <Login /> : <Navigate to="/" />} />
+              <Route path='/registro' element={!user ? <Registro /> : <Navigate to="/" />} />
+              <Route path='/posts/create' element={user ? <CreatePost /> : <Navigate to="/login" />} />
+              <Route path='/dashboard' element={user ? <Dashboard /> : <Navigate to="/login" />} />
             </Routes>
           </div>
           <Footer />
