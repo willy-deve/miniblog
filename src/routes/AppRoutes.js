@@ -11,6 +11,8 @@ import { AuthProvider } from '../context/AuthContext';
 import { onAuthStateChanged } from 'firebase/auth';
 import { useState, useEffect } from 'react';
 import { useAuthentication } from '../hooks/useAuthentication';
+import CreatePost from '../pages/CreatePost/CreatePost';
+import Dashboard from '../pages/Dashboard/Dashboard';
 
 
 
@@ -45,6 +47,8 @@ function AppRoutes() {
               <Route path='/about' element={<About />} />
               <Route path='/login' element={<Login />} />
               <Route path='/registro' element={<Registro />} />
+              <Route path='/posts/create' element={<CreatePost />} />
+              <Route path='/dashboard' element={<Dashboard />} />
             </Routes>
           </div>
           <Footer />
