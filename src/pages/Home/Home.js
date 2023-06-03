@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import styles from "./Home.module.css"
 import { Link } from 'react-router-dom';
+import { useFetchDocuments } from "../../hooks/useFetchDocuments"
+import { PostDetail } from '../../components/PostDetail/PostDetail';
 
 function Home() {
 
   const [query, setQuery] = useState("")
-  const [posts] = useState([])
+  const { documents: posts, loading } = useFetchDocuments("posts")
 
   return (
     <div className={styles.home}>
@@ -19,7 +21,10 @@ function Home() {
         <button className='btn btn-dark'>Pesquisar</button>
       </form>
       <div>
-        <h1>Posts...</h1>
+        {loading && <p>Carregando...</p>}
+        {posts && posts.map((post) => (
+          <PostDetail key={post.id} post={post} />
+        ))}
         {posts && posts.length === 0 && (
           <div className={styles.noposts}>
             <p>Não foram enconstrados posts</p>
