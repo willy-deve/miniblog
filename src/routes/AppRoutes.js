@@ -12,6 +12,9 @@ import Dashboard from '../pages/Dashboard/Dashboard';
 import { useAuthentication } from '../hooks/useAuthentication';
 import { onAuthStateChanged } from 'firebase/auth';
 import { AuthProvider } from '../context/AuthContext';
+import Search from '../pages/Search/Search';
+
+
 
 
 
@@ -45,6 +48,7 @@ function AppRoutes() {
             <Routes>
               <Route path='/' element={<Home />} />
               <Route path='/about' element={<About />} />
+              <Route path='/search' element={<Search />} />
               <Route path='/login' element={!user ? <Login /> : <Navigate to="/" />} />
               <Route path='/registro' element={!user ? <Registro /> : <Navigate to="/" />} />
               <Route path='/posts/create' element={user ? <CreatePost /> : <Navigate to="/login" />} />
